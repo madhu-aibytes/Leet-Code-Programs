@@ -1,5 +1,5 @@
 class Solution:
-    def reverse(self, x):
+    def reverse(self, x: int) -> int:
         sign = -1 if x < 0 else 1
         x = abs(x)
 
@@ -9,17 +9,10 @@ class Solution:
             rev = rev * 10 + digit
             x //= 10
 
-        rev = rev * sign
+        rev *= sign
 
-        # Optional 32-bit overflow check
+        # 32-bit signed integer check (LeetCode constraint)
         if rev < -2**31 or rev > 2**31 - 1:
             return 0
 
         return rev
-
-# ---------- VS Code Testing ----------
-x = int(input("Enter number to reverse: "))
-sol = Solution()
-print(sol.reverse(x))
-
-
